@@ -13,17 +13,17 @@ const Home = () => {
         <Pergunta
           title="Pergunta 01"
           autor="João Pedro"
-          func={() => navigate('/pergunta/01')}
+          func={() => navigate('/pergunta/Pergunta 01')}
         />
         <Pergunta
           title="Pergunta 02"
           autor="João Pedro"
-          func={() => navigate('/pergunta/02')}
+          func={() => navigate('/pergunta/Pergunta 02')}
         />
         <Pergunta
           title="Pergunta 03"
           autor="João Pedro"
-          func={() => navigate('/pergunta/03')}
+          func={() => navigate('/pergunta/Pergunta 03')}
         />
       </div>
     </div>
