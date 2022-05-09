@@ -1,13 +1,97 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New,
     monospace;
 }
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Login e Cadastrado */
+
+.containerLogin{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: blue;
+   align-items: center;
+}
+
+.boxLogin{
+  width: 90%;
+  height: 400px;
+  max-width: 400px;
+  padding: 20px;
+  background: #fff;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+input{
+  padding: 15px; 
+  width: 100%;
+  max-width: 400px;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.btn{
+  border: none;
+  background: green;
+  color: white;
+  padding: 10px 20px;
+}
+
+
+/* Home */
+
+
+.container{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.listaPergunta{
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: solid 1px #ccc;
+  margin: 20px 0;
+}
+
+
+
+/* Pergunta */
+.pergunta{
+  width: 90%;
+  border: solid 1px #ddd;
+  padding: 5px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
