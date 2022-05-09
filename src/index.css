@@ -95,3 +95,20 @@ input{
   cursor: pointer;
 }
 
+.header{
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: blue;
+}
+
+.header a{
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.float{
+  float: right;
+}
+
