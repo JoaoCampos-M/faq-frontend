@@ -7,7 +7,7 @@ const Cadastrar = () => {
   return (
     <div className="containerLogin">
       <div className="boxLogin">
-        <h1>Login</h1>
+        <h1>Cadastro</h1>
         <input
           type="text"
           name="name"
