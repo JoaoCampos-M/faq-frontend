@@ -28,6 +28,7 @@ const Cadastrar = () => {
         />
         <div className="row">
           <Button txt="Cadastrar" func={() => navigate('/')} />
+          <Button txt="voltar" func={() => navigate('/')} />
         </div>
       </div>
     </div>
