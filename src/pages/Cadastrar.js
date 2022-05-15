@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Button from '../components/Button'
+import * as Button from '../components/Button'
 
 const Cadastrar = () => {
   const navigate = useNavigate()
@@ -27,8 +27,8 @@ const Cadastrar = () => {
           className="input"
         />
         <div className="row">
-          <Button txt="Cadastrar" func={() => navigate('/')} />
-          <Button txt="voltar" func={() => navigate('/')} />
+          <Button.Button txt="Cadastrar" func={() => navigate('/')} />
+          <Button.Button txt="voltar" func={() => navigate('/')} />
         </div>
       </div>
     </div>
