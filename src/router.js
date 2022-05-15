@@ -5,7 +5,7 @@ import CadPergunta from './pages/CadPergunta'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import MeuPerfil from './pages/MeuPerfil'
-import SinglePergunta from './pages/SinglePergunta'
+import SinglePergunta from './pages/ViewPergunta/SinglePergunta'
 
 const router = () => {
   return (

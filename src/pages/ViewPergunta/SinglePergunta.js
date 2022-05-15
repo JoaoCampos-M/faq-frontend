@@ -19,7 +19,7 @@ const SinglePergunta = () => {
         of Lorem Ipsumom
       </p>
 
-      {/* <textarea className="textarea">asdasd</textarea> */}
+      <textarea className="textarea">asdasd</textarea>
     </div>
   )
 }
