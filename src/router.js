@@ -1,11 +1,11 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Cadastrar from './pages/Cadastrar'
-import CadPergunta from './pages/CadPergunta'
+import CadPergunta from './pages/CadPergunta/CadPergunta'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import MeuPerfil from './pages/MeuPerfil'
-import SinglePergunta from './pages/SinglePergunta'
+import SinglePergunta from './pages/ViewPergunta/SinglePergunta'
 
 const router = () => {
   return (

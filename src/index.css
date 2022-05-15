@@ -84,8 +84,6 @@ input{
   margin: 20px 0;
 }
 
-
-
 /* Pergunta */
 .pergunta{
   width: 90%;
@@ -93,6 +91,24 @@ input{
   padding: 5px;
   margin: 10px 0;
   cursor: pointer;
+}
+
+.listaResposta{
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Resposta */
+.resposta{
+  width: 90%;
+  border-bottom: solid 1px #ddd;
+  padding: 5px;
+  margin: 10px 0;
 }
 
 .header{
