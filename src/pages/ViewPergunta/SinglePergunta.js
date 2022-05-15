@@ -18,8 +18,8 @@ const SinglePergunta = () => {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsumom
       </p>
-
       <textarea className="textarea">asdasd</textarea>
+      <button className="button"> enviar resposta</button>
     </div>
   )
 }
