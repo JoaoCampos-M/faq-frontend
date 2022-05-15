@@ -1,0 +1,78 @@
+{
+    "usuario":[
+        {
+            "id":1,
+            "nome": "faq",
+            "email": "teste@emai.br",
+            "senha": "33333"
+        },
+        {
+            "id":2,
+            "nome": "teste",
+            "email": "teste@email.br",
+            "senha": "000"
+        }
+    ],
+
+    "perguntas":[
+        {
+            "id": 3,
+            "autor": "Quem fez essa pergunta?",
+            "palavra-chave": "Essa pergunta é importante",
+            "corpo_da_pergunta":"",
+            "usuario": {
+                "id":1,
+                "nome": "faq",
+                "email": "teste@email.br"
+            },
+            
+            "respostas":[
+                {
+                    "id": 1,
+                    "usuario":{
+                        "id":1,
+                        "nome": "Ronaldo",
+                        "email": "teste@emai.br"
+                    },
+                    "corpo": "corpo de respostas!!",
+                    "imagem": "png",
+                    "corpo_da_pergunta":"texto"
+                },
+                {
+                    "id": 1,
+                    "usuario":{
+                        "id":1,
+                        "nome": "Ronaldo",
+                        "email": "teste@emai.br"
+                    },
+                    "corpo": "TESTE!!",
+                    "imagem": "png",
+                    "corpo_da_pergunta":"texto"
+                },
+                
+                {
+                    "id":2,
+                    "usuario":{
+                        "id":2,
+                        "nome": "Bruno",
+                        "email": "bruno@email.br"
+                    },
+                    "corpo": "sim e nao"
+                },
+                {
+                    "id":2,
+                    "usuario":{
+                        "id":2,
+                        "nome": "Bruno",
+                        "email": "bruno@email.br"
+                    },
+                    "corpo": "nao sei"
+                }
+                
+            ]
+
+
+        }
+    ]
+
+}
