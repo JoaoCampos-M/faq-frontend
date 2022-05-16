@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/Button'
+import axios from 'axios'
 
 const Login = () => {
+  async function getlista() {
+    try {
+      const users = await axios.get('http://localhost:3001/usuario')
+      console.log(users.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getlista()
+  }, [])
+
   const navigate = useNavigate()
   return (
     <div className="containerLogin">
