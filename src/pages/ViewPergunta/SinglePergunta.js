@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import './styles.css'
 import Resposta from '../../components/Resposta'
+import Button from '../../components/Button'
 
 const SinglePergunta = () => {
   const { id } = useParams()
@@ -24,8 +25,10 @@ const SinglePergunta = () => {
         <Resposta title="hoje é dia 04" autor="luander gameplays" />
         <Resposta title="onde eu peço uma pizza por aqui?" autor="calabresa" />
       </div>
+
+      <h1>Enviar uma resposta</h1>
       <textarea className="textarea">asdasd</textarea>
-      <button className="button"> enviar resposta</button>
+      <Button txt="Enviar" />
     </div>
   )
 }
