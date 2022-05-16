@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import './styles.css'
 import Resposta from '../../components/Resposta'
-import Button from '../../components/Button'
+import { Button } from '../../components/Button'
 
 const SinglePergunta = () => {
   const { id } = useParams()
