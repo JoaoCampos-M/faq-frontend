@@ -24,7 +24,7 @@ const MeuPerfil = () => {
           className="input"
         />
         <div className="row">
-          <Button txt="Apagar Conta" func={() => navigate('/')} />
+          <Button txt="Apagar Conta" onClick={() => navigate('/')} />
         </div>
       </div>
     </div>

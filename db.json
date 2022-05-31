@@ -1,0 +1,30 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Teste",
+      "email": "teste@exemplo.com",
+      "senha": "senhafacil"
+    }
+  ],
+  "perguntas": [
+    {
+      "id": 1,
+      "usuarioId": 1,
+      "palavrasChave": [
+        "Desenvolvimento WEB"
+      ],
+      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id dolor in justo feugiat pretium non ut nisl. Curabitur blandit.",
+      "imagem": "https://www12.senado.leg.br/institucional/gestaoboaspraticas/imagens/imagem-teste/image"
+    }
+  ],
+  "respostas": [
+    {
+      "id": 1,
+      "usuarioId": 1,
+      "perguntaId": 1,
+      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla augue eros, viverra.",
+      "imagem": "https://06c01e32-a-62cb3a1a-s-sites.googlegroups.com/site/coalapreguicoso/home/8164340427_212b7e5c66.jpg?attachauth=ANoY7co6iUqaa4USydt2R3eIZPFbG2LlSPJh4Jdchbe2kCWpklvyGhMvNG4TIb6-McvgbD7J6cDgSFy40PCHJ2gfJH3zMnJGhT2AnPIYw7LdD_sqKhGJc_3CndWGHpgNCKfrf6x9WqVimjNH8j4V_d1lIuWQOx2uBRd9OYwl37gDDP7Ng35-UfLN7nfRMk3o_UI0BTR3ksMDZe8KgxouSnsnHeRT2R8TQPSq2Z4nEGEcEFcqw6udaNU%3D&attredirects=0"
+    }
+  ]
+}

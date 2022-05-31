@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = props => {
+const Button = ({ txt, ...rest }) => {
   return (
-    <button onClick={() => props.func()} className="btn">
-      {props.txt}
+    <button {...rest} className="btn">
+      {txt}
     </button>
   )
 }
@@ -14,17 +14,16 @@ Button.propTypes = {
   func: PropTypes.func
 }
 
-const Inserir = props => {
+const Inserir = ({ txt, ...rest }) => {
   return (
-    <button onClick={() => props.func()} className="btn">
-      {props.txt}
+    <button {...rest} className="btn">
+      {txt}
     </button>
   )
 }
 
 Inserir.propTypes = {
-  txt: PropTypes.string,
-  func: PropTypes.func
+  txt: PropTypes.string
 }
 
 export { Button, Inserir }

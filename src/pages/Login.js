@@ -1,43 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/Button'
-import axios from 'axios'
+import api from '../services/api'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Login = () => {
-  const [users, setusers] = useState([])
-
-  async function getlista() {
-    try {
-      const users = await axios.get('http://localhost:3001/usuario')
-      setusers(users.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  function validarusuario(evento) {
+  const validarusuario = async evento => {
     evento.preventDefault()
-    // console.log(evento.target[0].value)
-    // console.log(evento.target[1].value)
-    // console.log(users)
-    for (let index = 0; index < users.length; index++) {
+    const response = await api.get('/usuarios?email=' + evento.target[0].value)
+    if (response.data.length > 0) {
+      const user = response.data[0]
       if (
-        evento.target[0].value === users[index].email &&
-        evento.target[1].value === users[index].senha
+        user.email === evento.target[0].value &&
+        user.senha === evento.target[1].value
       ) {
-        // console.log(users[index])
+        localStorage.setItem('faq@user', JSON.stringify(user))
         navigate('/inicial')
+      } else {
+        toast.error('Falha no login! Verifique sua senha!')
       }
+    } else {
+      toast.error('Falha no login! Verifique seu email!')
     }
   }
 
   useEffect(() => {
-    getlista()
+    // getlista()
   }, [])
 
   const navigate = useNavigate()
   return (
     <div className="containerLogin">
+      <ToastContainer />
       <form onSubmit={validarusuario} className="boxLogin">
         <h1>Login</h1>
         <input
@@ -54,7 +48,27 @@ const Login = () => {
         />
         <div className="row">
           <Button type="submit" txt="Entrar" />
-          <Button txt="Cadastrar Novo" func={() => navigate('/cadastrar')} />
+        </div>
+        <div className="row">
+          <a
+            style={{
+              textDecoration: 'underline',
+              fontWeight: 'bold',
+              cursor: 'pointer'
+            }}
+            txt="Cadastre-se"
+            onClick={() => navigate('/cadastrar')}
+          >
+            Cadastre-se
+          </a>
+          <p
+            style={{
+              alignItems: 'center',
+              display: 'flex'
+            }}
+          >
+            Ainda não é um usuário?
+          </p>
         </div>
       </form>
     </div>
