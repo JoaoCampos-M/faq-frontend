@@ -7,7 +7,7 @@ import { getAllQuestions } from '../services/questions'
 const Home = () => {
   const [questions, setQuestions] = useState([])
   useEffect(() => {
-    async
+    // async
     const qt = getAllQuestions()
     setQuestions(qt)
   }, [])
@@ -24,7 +24,7 @@ const Home = () => {
               key={index}
               title={item.texto}
               autor="João Pedro"
-              func={() => navigate('/pergunta/Pergunta 01')}
+              func={() => navigate('/pergunta/1')}
             />
           )
         })}
