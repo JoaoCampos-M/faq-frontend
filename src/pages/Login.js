@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/Button'
-import api from '../services/api'
+
 import { ToastContainer, toast } from 'react-toastify'
+import { getUserByEmail } from '../services/users'
 
 const Login = () => {
   const validarusuario = async evento => {
     evento.preventDefault()
-    const response = await api.get('/usuarios?email=' + evento.target[0].value)
-    if (response.data.length > 0) {
-      const user = response.data[0]
+    const data = await getUserByEmail(evento.target[0].value)
+    if (data.length > 0) {
+      const user = data[0]
       if (
         user.email === evento.target[0].value &&
         user.senha === evento.target[1].value
@@ -17,16 +18,12 @@ const Login = () => {
         localStorage.setItem('faq@user', JSON.stringify(user))
         navigate('/inicial')
       } else {
-        toast.error('Falha no login! Verifique sua senha!')
+        toast.error('Falha no login! senha incorreta!')
       }
     } else {
-      toast.error('Falha no login! Verifique seu email!')
+      toast.error('Falha no login! email não cadastrado!')
     }
   }
-
-  useEffect(() => {
-    // getlista()
-  }, [])
 
   const navigate = useNavigate()
   return (

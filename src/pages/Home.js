@@ -3,13 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import Pergunta from '../components/Pergunta'
 import Header from '../components/Header'
 import { getAllQuestions } from '../services/questions'
+import { getAllUsers, getUserName, searchUserById } from '../services/users'
 
 const Home = () => {
   const [questions, setQuestions] = useState([])
+  const [autors, setAutors] = useState([])
   useEffect(() => {
-    // async
-    const qt = getAllQuestions()
-    setQuestions(qt)
+    const loadData = async () => {
+      setAutors(await getAllUsers())
+      setQuestions(await getAllQuestions())
+    }
+    loadData()
   }, [])
 
   const navigate = useNavigate()
@@ -23,26 +27,11 @@ const Home = () => {
             <Pergunta
               key={index}
               title={item.texto}
-              autor="João Pedro"
+              autor={getUserName(searchUserById(item.usuarioId, autors))}
               func={() => navigate('/pergunta/1')}
             />
           )
         })}
-        {/* <Pergunta
-          title="Pergunta 01"
-          autor="João Pedro"
-          func={() => navigate('/pergunta/Pergunta 01')}
-        />
-        <Pergunta
-          title="Pergunta 02"
-          autor="João Pedro"
-          func={() => navigate('/pergunta/Pergunta 02')}
-        />
-        <Pergunta
-          title="Pergunta 03"
-          autor="João Pedro"
-          func={() => navigate('/pergunta/Pergunta 03')}
-        /> */}
       </div>
     </div>
   )
