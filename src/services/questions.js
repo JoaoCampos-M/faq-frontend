@@ -10,4 +10,14 @@ const getAllQuestions = async () => {
   }
 }
 
-export { getAllQuestions }
+const postQuestion = async data => {
+  try {
+    const response = await api.get('/perguntas', data)
+    return response.data
+  } catch (err) {
+    console.log(err)
+    return []
+  }
+}
+
+export { getAllQuestions, postQuestion }
