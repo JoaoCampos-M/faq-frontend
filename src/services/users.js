@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 import api from './api'
 
 const getUserById = async id => {
@@ -7,6 +8,23 @@ const getUserById = async id => {
   } catch (err) {
     console.log(err)
     return []
+  }
+}
+
+const postUser = async data => {
+  try {
+    const result = await getUserByEmail(data.email)
+    if (result.length > 0) {
+      return toast.info('Email já cadastrado :(')
+    } else {
+      const response = await api.post('/usuarios', data)
+      if (response.status === 201) {
+        return toast.success('Cadastro realizado :)')
+      }
+    }
+  } catch (err) {
+    console.log(err)
+    return 'Falha ao realizar cadastro :('
   }
 }
 
@@ -46,4 +64,11 @@ const getUserName = user => {
   return nome
 }
 
-export { getUserById, getUserByEmail, getAllUsers, searchUserById, getUserName }
+export {
+  getUserById,
+  getUserByEmail,
+  getAllUsers,
+  searchUserById,
+  getUserName,
+  postUser
+}
