@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Cadastrar from './pages/Cadastrar'
-import CadPergunta from './pages/CadPergunta/CadPergunta'
+import CadPergunta from './pages/CadPergunta/index'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import MeuPerfil from './pages/MeuPerfil'
