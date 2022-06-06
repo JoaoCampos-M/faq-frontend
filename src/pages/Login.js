@@ -11,6 +11,7 @@ const Login = () => {
     const data = await getUserByEmail(evento.target[0].value)
     if (data.length > 0) {
       const user = data[0]
+      console.log(user)
       if (
         user.email === evento.target[0].value &&
         user.senha === evento.target[1].value
