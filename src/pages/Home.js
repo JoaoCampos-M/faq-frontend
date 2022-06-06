@@ -28,7 +28,7 @@ const Home = () => {
               key={index}
               title={item.texto}
               autor={getUserName(searchUserById(item.usuarioId, autors))}
-              func={() => navigate('/pergunta/1')}
+              func={() => navigate(`${process.env.PUBLIC_URL}/pergunta/1`)}
             />
           )
         })}

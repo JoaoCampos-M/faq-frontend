@@ -27,8 +27,14 @@ const Cadastrar = () => {
           className="input"
         />
         <div className="row">
-          <Button txt="Cadastrar" onClick={() => navigate('/')} />
-          <Button txt="voltar" onClick={() => navigate('/')} />
+          <Button
+            txt="Cadastrar"
+            onClick={() => navigate(`${process.env.PUBLIC_URL}/`)}
+          />
+          <Button
+            txt="voltar"
+            onClick={() => navigate(`${process.env.PUBLIC_URL}/`)}
+          />
         </div>
       </div>
     </div>

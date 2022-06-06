@@ -16,7 +16,7 @@ const Login = () => {
         user.senha === evento.target[1].value
       ) {
         localStorage.setItem('faq@user', JSON.stringify(user))
-        navigate('/inicial')
+        navigate(`${process.env.PUBLIC_URL}/inicial`)
       } else {
         toast.error('Falha no login! senha incorreta!')
       }
@@ -54,7 +54,7 @@ const Login = () => {
               cursor: 'pointer'
             }}
             txt="Cadastre-se"
-            onClick={() => navigate('/cadastrar')}
+            onClick={() => navigate(`${process.env.PUBLIC_URL}/cadastrar`)}
           >
             Cadastre-se
           </a>

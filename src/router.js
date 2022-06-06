@@ -10,12 +10,24 @@ import SinglePergunta from './pages/ViewPergunta/SinglePergunta'
 const router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/cadastrar" element={<Cadastrar />} />
-      <Route path="/inicial" element={<Home />} />
-      <Route path="/pergunta/:id" element={<SinglePergunta />} />
-      <Route path="/cadastrar-pergunta" element={<CadPergunta />} />
-      <Route path="/meu-perfil" element={<MeuPerfil />} />
+      <Route path={`${process.env.PUBLIC_URL}/`} element={<Login />} />
+      <Route
+        path={`${process.env.PUBLIC_URL}/cadastrar`}
+        element={<Cadastrar />}
+      />
+      <Route path={`${process.env.PUBLIC_URL}/inicial`} element={<Home />} />
+      <Route
+        path={`${process.env.PUBLIC_URL}/pergunta/:id`}
+        element={<SinglePergunta />}
+      />
+      <Route
+        path={`${process.env.PUBLIC_URL}/cadastrar-pergunta`}
+        element={<CadPergunta />}
+      />
+      <Route
+        path={`${process.env.PUBLIC_URL}/meu-perfil`}
+        element={<MeuPerfil />}
+      />
     </Routes>
   )
 }

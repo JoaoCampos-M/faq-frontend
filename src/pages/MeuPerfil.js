@@ -24,7 +24,10 @@ const MeuPerfil = () => {
           className="input"
         />
         <div className="row">
-          <Button txt="Apagar Conta" onClick={() => navigate('/')} />
+          <Button
+            txt="Apagar Conta"
+            onClick={() => navigate(`${process.env.PUBLIC_URL}/`)}
+          />
         </div>
       </div>
     </div>
