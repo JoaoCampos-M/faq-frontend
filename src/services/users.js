@@ -14,6 +14,8 @@ const getUserById = async id => {
 const postUser = async data => {
   try {
     const result = await getUserByEmail(data.email)
+    console.log(result)
+    console.log(data)
     if (result.length > 0) {
       return toast.info('Email já cadastrado :(')
     } else {
