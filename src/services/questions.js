@@ -23,4 +23,14 @@ const postQuestion = async data => {
   }
 }
 
-export { getAllQuestions, postQuestion }
+const getQuestionById = async id => {
+  try {
+    const response = await api.get('/perguntas?id=' + id)
+    return response.data
+  } catch (err) {
+    console.log(err)
+    return []
+  }
+}
+
+export { getAllQuestions, postQuestion, getQuestionById }

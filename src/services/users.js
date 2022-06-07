@@ -60,7 +60,6 @@ const searchUserById = (id, data) => {
 
 const getUserName = user => {
   const { nome } = user
-  console.log(user)
   return nome
 }
 

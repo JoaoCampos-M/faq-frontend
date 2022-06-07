@@ -1,33 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import './styles.css'
 import Resposta from '../../components/Resposta'
 import { Button } from '../../components/Button'
+import { getQuestionById } from '../../services/questions'
+import { getAnswerById } from '../../services/answers'
+import { getAllUsers, searchUserById } from '../../services/users'
 
 const SinglePergunta = () => {
+  const [question, setQuestion] = useState()
+  const [answers, setAnswers] = useState([])
+  const [autors, setAutors] = useState([])
   const { id } = useParams()
+  useEffect(() => {
+    async function init() {
+      const resp = await getQuestionById(id)
+      setQuestion(resp[0])
+
+      const aux = await getAnswerById(resp[0].id)
+      const users = await getAllUsers()
+      setAutors(users)
+      setAnswers(aux)
+    }
+    init()
+  }, [])
+
+  function getAutorName(id) {
+    const user = searchUserById(id, autors)
+    return user.nome
+  }
+
   return (
     <div className="container">
       <Header />
-      <h1>{id}</h1>
-      <p className="teste">
-        text ever since the 1500s, when an unknown printer took a galley of type
-        and scrambled it to make a type specimen book. It has survived not only
-        five centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsumom
-      </p>
+      <p className="teste">{question?.texto}</p>
       <div className="listaResposta">
-        <Resposta title="hoje é dia 32" autor="amanteigado" />
-        <Resposta title="hoje é dia 04" autor="luander gameplays" />
-        <Resposta title="onde eu peço uma pizza por aqui?" autor="calabresa" />
+        {answers.map((item, index) => {
+          return (
+            <Resposta
+              key={index}
+              title={item.texto}
+              autor={getAutorName(item.usuarioId) || ''}
+            />
+          )
+        })}
       </div>
 
       <h1>Enviar uma resposta</h1>
-      <textarea className="textarea">asdasd</textarea>
+      <textarea className="textarea"></textarea>
       <Button txt="Enviar" />
     </div>
   )
