@@ -18,7 +18,7 @@ const Login = () => {
         user.senha === evento.target[1].value
       ) {
         localStorage.setItem('faq@user', JSON.stringify(user))
-        navigate(`${process.env.PUBLIC_URL}/inicial`)
+        navigate(`${process.env.PUBLIC_URL}/inicio`)
       } else {
         toast.error('Falha no login! senha incorreta!')
       }

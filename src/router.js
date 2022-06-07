@@ -15,7 +15,7 @@ const router = () => {
         path={`${process.env.PUBLIC_URL}/cadastrar`}
         element={<Cadastrar />}
       />
-      <Route path={`${process.env.PUBLIC_URL}/inicial`} element={<Home />} />
+      <Route path={`${process.env.PUBLIC_URL}/inicio`} element={<Home />} />
       <Route
         path={`${process.env.PUBLIC_URL}/pergunta/:id`}
         element={<SinglePergunta />}
