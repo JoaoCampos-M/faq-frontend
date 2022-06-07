@@ -1,6 +1,5 @@
 import { toast } from 'react-toastify'
 import api from './api'
-// import { useNavigate } from 'react-router-dom'
 
 const getUserById = async id => {
   try {
@@ -21,9 +20,7 @@ const postUser = async data => {
       return toast.info('Email já cadastrado :(')
     } else {
       const response = await api.post('/usuarios', data)
-      if (response.status === 201) {
-        return toast.success('Cadastro realizado :)')
-      }
+      return response.status
     }
   } catch (err) {
     console.log(err)

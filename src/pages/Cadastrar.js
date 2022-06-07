@@ -2,9 +2,10 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/Button'
 import { postUser } from '../services/users'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Cadastrar = () => {
+  const nav = useNavigate()
   const handleSubmit = async e => {
     e.preventDefault()
     const form = e.target
@@ -14,7 +15,11 @@ const Cadastrar = () => {
       email: form[1].value,
       senha: form[2].value
     }
-    await postUser(data)
+    const status = await postUser(data)
+    if (status === 201) {
+      toast.success('Cadastro realizado :)')
+      nav(`${process.env.PUBLIC_URL}/`)
+    }
   }
 
   const navigate = useNavigate()
