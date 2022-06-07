@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify'
 import api from './api'
+// import { useNavigate } from 'react-router-dom'
 
 const getUserById = async id => {
   try {
@@ -66,7 +67,18 @@ const getUserName = user => {
   return nome
 }
 
+const getCurrentUser = () => {
+  let user = {}
+  if (localStorage.getItem('faq@user')) {
+    user = JSON.parse(localStorage.getItem('faq@user'))
+    return user
+  } else {
+    return undefined
+  }
+}
+
 export {
+  getCurrentUser,
   getUserById,
   getUserByEmail,
   getAllUsers,
