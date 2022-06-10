@@ -5,7 +5,7 @@ import './styles.css'
 import Resposta from '../../components/Resposta'
 import { Button } from '../../components/Button'
 import { getQuestionById } from '../../services/questions'
-import { getAnswerById } from '../../services/answers'
+import { getAnswerById, postAnswer } from '../../services/answers'
 import { getAllUsers, searchUserById } from '../../services/users'
 
 const SinglePergunta = () => {
@@ -31,6 +31,19 @@ const SinglePergunta = () => {
     return user.nome
   }
 
+  const sendAnswer = async e => {
+    e.preventDefault()
+    const data = { perguntaId: id, texto: e.target[0].value }
+    const response = await postAnswer(data)
+    console.log(response)
+  }
+
+  const styles = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  }
+
   return (
     <div className="container">
       <Header />
@@ -46,10 +59,11 @@ const SinglePergunta = () => {
           )
         })}
       </div>
-
-      <h1>Enviar uma resposta</h1>
-      <textarea className="textarea"></textarea>
-      <Button txt="Enviar" />
+      <form style={styles} onSubmit={sendAnswer}>
+        <h1>Enviar uma resposta</h1>
+        <textarea className="textarea"></textarea>
+        <Button txt="Enviar" />
+      </form>
     </div>
   )
 }
