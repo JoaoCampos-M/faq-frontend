@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
-
+import { Button } from '../../components/Button'
 import { postQuestion } from '../../services/questions'
 import { getCurrentUser } from '../../services/users'
 import './styles.css'
@@ -33,9 +33,8 @@ const CadPergunta = () => {
         <input />
         <h3 className="title">Descricão</h3>
         <textarea className="textarea"></textarea>
-        <button type="submit" className="button">
-          Enviar
-        </button>
+
+        <Button type="submit" txt="Enviar" />
       </form>
     </div>
   )

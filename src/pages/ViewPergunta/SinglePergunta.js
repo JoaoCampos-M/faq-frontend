@@ -13,16 +13,17 @@ const SinglePergunta = () => {
   const [answers, setAnswers] = useState([])
   const [autors, setAutors] = useState([])
   const { id } = useParams()
-  useEffect(() => {
-    async function init() {
-      const resp = await getQuestionById(id)
-      setQuestion(resp[0])
 
-      const aux = await getAnswerById(resp[0].id)
-      const users = await getAllUsers()
-      setAutors(users)
-      setAnswers(aux)
-    }
+  async function init() {
+    const resp = await getQuestionById(id)
+    setQuestion(resp[0])
+
+    const aux = await getAnswerById(resp[0].id)
+    const users = await getAllUsers()
+    setAutors(users)
+    setAnswers(aux)
+  }
+  useEffect(() => {
     init()
   }, [])
 
@@ -35,7 +36,9 @@ const SinglePergunta = () => {
     e.preventDefault()
     const data = { perguntaId: id, texto: e.target[0].value }
     const response = await postAnswer(data)
+    e.target[0].value = ''
     console.log(response)
+    init()
   }
 
   const styles = {
@@ -54,7 +57,7 @@ const SinglePergunta = () => {
             <Resposta
               key={index}
               title={item.texto}
-              autor={getAutorName(item.usuarioId) || ''}
+              autor={getAutorName(item.usuarioId) || 'desconhecido'}
             />
           )
         })}

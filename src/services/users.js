@@ -30,27 +30,11 @@ const postUser = async data => {
 
 const deleteUser = async data => {
   try {
-    const usuarioatual = getCurrentUser()
-    if (
-      data.email === usuarioatual.email &&
-      data.senha === usuarioatual.senha
-    ) {
-      console.log(usuarioatual)
-      const response = await api.delete('/usuarios/' + usuarioatual.id)
-      return response.status
-    }
-    // const result = await getUserByEmail(data.email)
-    // console.log(result)
-    // console.log(data)
-    // if (result.length > 0) {
-    //   return toast.info('Email já cadastrado :(')
-    // } else {
-    //   const response = await api.post('/usuarios', data)
-    //   return response.status
-    // }
+    const response = await api.delete('/usuarios/' + data.id)
+    return response.status
   } catch (err) {
     console.log(err)
-    return 'Falha ao realizar cadastro :('
+    return 'Não foi possivel deletar usuário'
   }
 }
 
