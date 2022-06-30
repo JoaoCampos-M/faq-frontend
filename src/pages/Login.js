@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/Button'
 
@@ -6,17 +6,18 @@ import { ToastContainer, toast } from 'react-toastify'
 import { getUserByEmail } from '../services/users'
 
 const Login = () => {
+  const [email, setemail] = useState()
+  const [password, setpassword] = useState()
+
   const validarusuario = async evento => {
     evento.preventDefault()
-    const data = await getUserByEmail(evento.target[0].value)
+
+    const data = await getUserByEmail(email)
     console.log(data)
     if (data.length > 0) {
       const user = data[0]
 
-      if (
-        user.email === evento.target[0].value &&
-        user.senha === evento.target[1].value
-      ) {
+      if (user.email === email && user.senha === password) {
         localStorage.setItem('faq@user', JSON.stringify(user))
         navigate(`${process.env.PUBLIC_URL}/inicio`)
       } else {
@@ -38,12 +39,20 @@ const Login = () => {
           name="email"
           placeholder="Email"
           className="input"
+          value={email}
+          onChange={evento => {
+            setemail(evento.target.value)
+          }}
         />
         <input
           type="password"
           name="password"
           placeholder="Senha"
           className="input"
+          value={password}
+          onChange={evento => {
+            setpassword(evento.target.value)
+          }}
         />
         <div className="row">
           <Button type="submit" txt="Entrar" />
