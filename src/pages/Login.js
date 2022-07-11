@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/Button'
 
 import { ToastContainer, toast } from 'react-toastify'
-import { getUserByEmail } from '../services/users'
+// import { getUserByEmail } from '../services/users'
+import { login } from '../services/auth'
 
 const Login = () => {
   const [email, setemail] = useState()
@@ -12,20 +13,25 @@ const Login = () => {
   const validarusuario = async evento => {
     evento.preventDefault()
 
-    const data = await getUserByEmail(email)
-    console.log(data)
-    if (data.length > 0) {
-      const user = data[0]
-
-      if (user.email === email && user.senha === password) {
-        localStorage.setItem('faq@user', JSON.stringify(user))
-        navigate(`${process.env.PUBLIC_URL}/inicio`)
-      } else {
-        toast.error('Falha no login! senha incorreta!')
-      }
+    const data = await login({ email, senha: password })
+    if (data.token_acesso) {
+      localStorage.setItem('faq@token', data.token_acesso)
     } else {
-      toast.error('Falha no login! email não cadastrado!')
+      toast.error('Não foi possivel realizar login!')
     }
+    // console.log(data)
+    // if (data.length > 0) {
+    //   const user = data[0]
+
+    //   if (user.email === email && user.senha === password) {
+    //     localStorage.setItem('faq@user', JSON.stringify(user))
+    //     navigate(`${process.env.PUBLIC_URL}/inicio`)
+    //   } else {
+    //     toast.error('Falha no login! senha incorreta!')
+    //   }
+    // } else {
+    //   toast.error('Falha no login! email não cadastrado!')
+    // }
   }
 
   const navigate = useNavigate()

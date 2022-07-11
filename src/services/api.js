@@ -6,7 +6,8 @@ const api = axios.create({
 
 api.interceptors.request.use(
   config => {
-    config.headers.use.Authorization = `${localStorage.getItem('faq@token')}`
+    console.log(config)
+    config.headers.Authorization = `${localStorage.getItem('faq@token')}`
     return config
   },
   except => {
